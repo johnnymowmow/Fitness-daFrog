@@ -46,9 +46,9 @@ namespace Treehouse.FitnessFrog.Controllers
         }
 
         //Post Action Method
-        //Define Method parameters
         [HttpPost]
-        public ActionResult Add(string date, string activityID, string duration, string intensity, string exclude, string notes)
+        public ActionResult Add(DateTime? date, int? activityID, double? duration, 
+                                Entry.IntensityLevel? intensity, bool? exclude, string notes)
         {
             //Extract the date form field valud  -- string date = Request.Form["Date"];
 
