@@ -58,7 +58,11 @@ namespace Treehouse.FitnessFrog.Controllers
         [HttpPost]
         public ActionResult Add(Entry entry)
         {
-            //Extract the date form field valud  -- string date = Request.Form["Date"];
+            //Global validation Message - by leaving the first parameter as empty string, it makes it global.
+            //ModelState.AddModelError("", "This is a global message.");
+
+
+            //When not "Strongly typed" Extract the date form field valud  -- string date = Request.Form["Date"];
 
             //Send the attemptedValues back because they could be null if there is an error converting to the correct type.
             // Old way to send back data - before using the htmlHelpers - ViewBag.Date = ModelState["date"].Value.AttemptedValue;

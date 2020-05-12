@@ -23,6 +23,9 @@
 
 <h2>@ViewBag.Title</h2>
 
+@*Display global error messages (Pass True to make it show global only) pass text and annonymous class to make it look better. *@
+@Html.ValidationSummary("<h3>The following errors were found:</h3>", new { @class="alert alert-danger" })
+
 
 
 @using (Html.BeginForm())
@@ -40,11 +43,13 @@
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
                 @Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.ActivitiesSelectListItems, "Select an Activity", new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.ActivityId) - removed because we are showing in validation summary section*@
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(m => m.Duration, new { @class = "control-label" })
                 @Html.TextBoxFor(m => m.Duration, new { @class = "form-control" })
+                @*@Html.ValidationMessageFor(m => m.Duration) - removed because we are showing in validation summary section*@
             </div>
 
             <div class="form-group">
