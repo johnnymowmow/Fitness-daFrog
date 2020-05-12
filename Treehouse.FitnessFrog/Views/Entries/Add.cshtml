@@ -2,6 +2,22 @@
 
 @{
     ViewBag.Title = "Add Entry";
+
+    //var selectListItems = new[]
+    //{
+    //    new SelectListItem() { Value = "1", Text = "Item 1",  Selected = false },
+    //    new SelectListItem() { Value = "2", Text = "Item 2", Selected = true },
+    //    new SelectListItem() { Value = "3", Text = "Item 3", Selected = false }
+    //};
+
+
+    //var items = new[]
+    //{
+    //    new { ID = 1, Name = "Item 1"},
+    //    new { ID = 2, Name = "Item 2"}
+    //};
+
+    //var selectListItems = new SelectList(items, "ID", "Name");
 }
 
 <h2>@ViewBag.Title</h2>
@@ -22,7 +38,7 @@
 
             <div class="form-group">
                 @Html.LabelFor(m => m.ActivityId, new { @class = "control-label" })
-                @Html.TextBoxFor(m => m.ActivityId, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.ActivityId, (SelectList)ViewBag.ActivitiesSelectListItems, "Select an Activity", new { @class = "form-control" })
             </div>
 
             <div class="form-group">
