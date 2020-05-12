@@ -66,7 +66,9 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 _entriesRepository.AddEntry(entry);
 
-                //ToDo Display the Entries List page.
+                //REDIRECT instead of returning the view. Send TO NEW PAGE TO DO THE "Post, Redirect, Get" pattern.
+                return RedirectToAction("Index");
+
             }
 
 
