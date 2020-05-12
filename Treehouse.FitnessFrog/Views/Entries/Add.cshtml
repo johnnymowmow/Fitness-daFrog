@@ -23,13 +23,12 @@
 
 <h2>@ViewBag.Title</h2>
 
-@*Display global error messages (Pass True to make it show global only) pass text and annonymous class to make it look better. *@
-@Html.ValidationSummary("<h3>The following errors were found:</h3>", new { @class="alert alert-danger" })
-
-
 
 @using (Html.BeginForm())
 {
+    @*Display global error messages (Pass True to make it show global only) pass text and annonymous class to make it look better. *@
+    @Html.ValidationSummary("The following errors were found:", new { @class = "alert alert-danger" })
+
     <div class="row">
 
         <div class="col-md-6">
@@ -75,7 +74,7 @@
                         @Html.CheckBoxFor(m => m.Exclude) @Html.DisplayNameFor(m => m.Exclude)
                     </label>
                 </div>
-                
+
                 @*<input id="Exclude" name="Exclude" type="checkbox" value="true" /> Exclude*@
 
             </div>
