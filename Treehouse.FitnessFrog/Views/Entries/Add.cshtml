@@ -33,7 +33,7 @@
 
             <div class="form-group">
                 @* STRONGLY TYPE WAY TO SPECIFY THE MODEL TYPE PROPERTY *@
-                @Html.LabelFor(m => m.Date, new { @class = "control-label" })
+                @Html.LabelFor(m => m.Date, new { @class = "control-label datepicker" })
                 @Html.TextBoxFor(m => m.Date, "{0:d}", new { @class = "form-control" })
             </div>
 
