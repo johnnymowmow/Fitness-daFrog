@@ -52,12 +52,13 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             //Extract the date form field valud  -- string date = Request.Form["Date"];
 
-            ViewBag.Date = date;
-            ViewBag.ActivityId = activityID;
-            ViewBag.Duration = duration;
-            ViewBag.Intensity = intensity;
-            ViewBag.Exclude = exclude;
-            ViewBag.Notes = notes;
+            //Send the attemptedValues back because they could be null if there is an error converting to the correct type.
+            ViewBag.Date = ModelState["date"].Value.AttemptedValue;
+            ViewBag.ActivityId = ModelState["activityID"].Value.AttemptedValue;
+            ViewBag.Duration = ModelState["duration"].Value.AttemptedValue;
+            ViewBag.Intensity = ModelState["intensity"].Value.AttemptedValue;
+            ViewBag.Exclude = ModelState["exclude"].Value.AttemptedValue;
+            ViewBag.Notes = ModelState["notes"].Value.AttemptedValue;
 
             return View();
         }
