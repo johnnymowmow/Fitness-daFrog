@@ -42,21 +42,35 @@ namespace Treehouse.FitnessFrog.Controllers
         //Get ActionMethod
         public ActionResult Add()
         {
-            return View();
+            var entry = new Entry()
+            {
+                Date = DateTime.Today
+            };
+
+            return View(entry);
         }
 
+
+
         //Post Action Method
+        //Old way before updating the view to use HTTP helpers.  Public ActionResult Add(DateTime? date, int? activityID, double? duration, Entry.IntensityLevel? intensity, bool? exclude, string notes)
         [HttpPost]
-        public ActionResult Add(DateTime? date, int? activityID, double? duration, 
-                                Entry.IntensityLevel? intensity, bool? exclude, string notes)
+        public ActionResult Add(Entry entry)
         {
             //Extract the date form field valud  -- string date = Request.Form["Date"];
 
             //Send the attemptedValues back because they could be null if there is an error converting to the correct type.
             // Old way to send back data - before using the htmlHelpers - ViewBag.Date = ModelState["date"].Value.AttemptedValue;
 
+            if (ModelState.IsValid)
+            {
+                _entriesRepository.AddEntry(entry);
 
-            return View();
+                //ToDo Display the Entries List page.
+            }
+
+
+            return View(entry);
         }
 
         public ActionResult Edit(int? id)
