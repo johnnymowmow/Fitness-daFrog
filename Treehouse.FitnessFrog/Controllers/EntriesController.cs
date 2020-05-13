@@ -74,6 +74,9 @@ namespace Treehouse.FitnessFrog.Controllers
             {
                 _entriesRepository.AddEntry(entry);
 
+                TempData["Message"] = "Your entry was successfully added!";
+
+
                 //REDIRECT instead of returning the view. Send TO NEW PAGE TO DO THE "Post, Redirect, Get" pattern.
                 return RedirectToAction("Index");
 
@@ -121,6 +124,8 @@ namespace Treehouse.FitnessFrog.Controllers
                 //1) Use the repository to update the entry
                 _entriesRepository.UpdateEntry(entry);
 
+                TempData["Message"] = "Your entry was successfully updated!";
+
                 //2) Redirect the user to the "Entries" list page
                 return RedirectToAction("Index");
             }
@@ -157,6 +162,8 @@ namespace Treehouse.FitnessFrog.Controllers
         {
             //Delete the Entry
             _entriesRepository.DeleteEntry(id);
+
+            TempData["Message"] = "Your entry was successfully deleted!";
 
             //REdirect to the Entries List page
             return RedirectToAction("Index");
