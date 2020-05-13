@@ -159,9 +159,8 @@ namespace Treehouse.FitnessFrog.Controllers
             _entriesRepository.DeleteEntry(id);
 
             //REdirect to the Entries List page
-            RedirectToAction("Index");
+            return RedirectToAction("Index");
 
-            return null;
         }
 
 
